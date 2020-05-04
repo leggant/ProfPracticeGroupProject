@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Threading;
 
-namespace PP_Final_Group_Project_2020
+namespace TeamAProfessionalPracticeGroupProject
 {
-    class AI
+    class PPGroupProject
     {
         static void Main()
         {
