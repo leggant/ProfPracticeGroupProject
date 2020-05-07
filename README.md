@@ -15,11 +15,7 @@ The programme never ends – it can go back and re-ask questions and overwrite p
 The “AI” picks up on inconsistent answers (e.g. if the user answers one question with a yes and later contradicts this, the AI will respond accordingly)
  Ideas for the “AI”:
 
-IT support person
-Doctor
-Psychiatrist
-Journalist
-Teacher
+Decision has been made to create a AI that will check in with the user and find out how they are. Based on their reply the AI will ask a series of follow-up questions that will push the user to explore.....
 
 Your team will present its programme in a team presentation after the mini-project.
 
