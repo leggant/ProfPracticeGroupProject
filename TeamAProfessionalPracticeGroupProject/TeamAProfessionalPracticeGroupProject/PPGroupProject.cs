@@ -25,34 +25,71 @@ namespace CatchUp19
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Please Enter your name :");
             NameInput = Console.ReadLine();
-            Console.WriteLine($"Hi {NameInput}, How you felling today? /n if you feeling ok enter 1 or enter 2 if you feel unwell");
+            //ask the user for their name
+            Console.WriteLine($"Hi {NameInput}, How you felling today? \nif you feeling ok enter 1 or enter 2 if you feel unwell");
+            //store the user information in a string
             string userchoice = Console.ReadLine();
-
+            //using switch to excute diffrent commands based on the user input
             switch (userchoice)
             {
+                //if the user enters 1 
                 case "1":
-
+                    //ask the user for why using the app 
                     Console.WriteLine("what brings you here ?.");
+                    //let the user pick a reason from the provided opions ,also we can expand these 
                     Console.WriteLine("bored,need moto,need something to do ");
+                    //store the user choice in a string
                     string firstQ = Console.ReadLine();
 
-
+                    //switch the use choice
                     switch (firstQ)
                     {
+                        //if the user pick bored 
                         case "bored":
-                            Console.WriteLine("quote");
-                            Console.WriteLine("there are plenty of thing to do , here are some ");
-                            Console.WriteLine("have a good day a good day ");
+                        case "Bored":
+                        case "boring":
+                            //we can add random items in this array to be picked and display it to the user 
+                            Console.Write("there are plenty of things to do , how about you ");
+                            Random rand = new Random();
+                            string[] x = { "play video games", "watch movies", "go clubing ", "Eat food", "listen to music" };
+                            int A = rand.Next(x.Length);
+                            string[] y = { "study", "clean your room", "do push ups ", "sleep", "jump around " };
+                            int B = rand.Next(x.Length);
+                            Console.WriteLine(x[A]);
+                            while (true)
+                            {
+                                Console.WriteLine($"So {NameInput.ToUpper()} still bored? yes or no ");
+                                string ans = Console.ReadLine();
+
+                                if (ans == "yes")
+                                {
+                                    Console.WriteLine($"why dont you try to {y[B]}");
+                                    Console.WriteLine("we can add more things here");
+
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Great :)");
+                                    Console.WriteLine("have a good day ");
+                                    
+                                    break;
+                                }
+                            }
+
                             break;
+
+
+
+
                         case "need moto":
-                            Console.WriteLine("quote");
+                            Console.WriteLine("text");
                             Console.WriteLine("watch videos or study etc");
                             Console.WriteLine("some text ");
                             break;
                         case "somthing to do":
-                            Console.WriteLine("quote");
+                            Console.WriteLine("text");
                             Console.WriteLine("paly games ");
-                            Console.WriteLine("have a good day a good day ");
+                            Console.WriteLine("have a good day");
                             break;
                     }
                     break;
@@ -96,7 +133,7 @@ namespace CatchUp19
 
 
             }
-            
+
 
 
 
@@ -121,8 +158,8 @@ namespace CatchUp19
             }
             questionsTextFileReader.Close();
             answersTextFileReader.Close();
-            
-            
+
+
             // Question and answer Arrays are now populated with text content from external text files.
 
 
