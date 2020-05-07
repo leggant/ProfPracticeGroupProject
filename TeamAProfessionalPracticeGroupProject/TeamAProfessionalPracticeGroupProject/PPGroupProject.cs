@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO; // For Importing Text Strings From Text Files
 
-namespace TeamAProfessionalPracticeGroupProject
+namespace CatchUp19
 {
     class PPGroupProject
     {
@@ -13,7 +13,7 @@ namespace TeamAProfessionalPracticeGroupProject
 
             string NameInput, temp = "";
             string hashlines = "################################################################";
-            string welcomeText = "###########Welcome, This Program is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
+            string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
 
             //Start Program
             // Welcome User & Ask for their name
@@ -121,8 +121,6 @@ namespace TeamAProfessionalPracticeGroupProject
             }
             questionsTextFileReader.Close();
             answersTextFileReader.Close();
-            //Console.WriteLine(questions[0]);
-            //Console.WriteLine(answers[0]);
             
             
             // Question and answer Arrays are now populated with text content from external text files.
