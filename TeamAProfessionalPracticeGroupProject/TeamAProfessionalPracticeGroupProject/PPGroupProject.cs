@@ -50,7 +50,9 @@ namespace TeamAProfessionalPracticeGroupProject
             answersTextFileReader.Close();
             //Console.WriteLine(questions[0]);
             //Console.WriteLine(answers[0]);
-            // Arrays are now populated with text content from external text files.
+            
+            
+            // Question and answer Arrays are now populated with text content from external text files.
 
             switch (userchoice)
             {
