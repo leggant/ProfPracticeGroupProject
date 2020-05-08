@@ -29,7 +29,32 @@ namespace CatchUp19
             Console.WriteLine($"Hi {NameInput}, How you felling today? \nif you feeling ok enter 1 or enter 2 if you feel unwell");
             //store the user information in a string
             string userchoice = Console.ReadLine();
+
+            //Loading text string data in to an array here.
+
+            StreamReader questionsTextFileReader = new StreamReader("QuestionStrings.txt");
+            StreamReader answersTextFileReader = new StreamReader("AnswerStrings.txt");
+
+            while (temp != null)
+            {
+                for (int i = 0; i < questions.Length; i++)
+                {
+                    temp = questionsTextFileReader.ReadLine();
+                    questions[i] = temp;
+                }
+                for (int i = 0; i < answers.Length; i++)
+                {
+                    temp = answersTextFileReader.ReadLine();
+                    answers[i] = temp;
+                }
+            }
+            questionsTextFileReader.Close();
+            answersTextFileReader.Close();
+
+            // Question and answer Arrays are now populated with text content from external text files.
+
             //using switch to excute diffrent commands based on the user input
+
             switch (userchoice)
             {
                 //if the user enters 1 
@@ -77,9 +102,6 @@ namespace CatchUp19
                             }
 
                             break;
-
-
-
 
                         case "need moto":
                             Console.WriteLine("text");
@@ -131,37 +153,7 @@ namespace CatchUp19
                     }
                     break;
 
-
             }
-
-
-
-
-
-            //Loading text string data in to an array here.
-
-            StreamReader questionsTextFileReader = new StreamReader("QuestionStrings.txt");
-            StreamReader answersTextFileReader = new StreamReader("AnswerStrings.txt");
-
-            while (temp != null)
-            {
-                for (int i = 0; i < questions.Length; i++)
-                {
-                    temp = questionsTextFileReader.ReadLine();
-                    questions[i] = temp;
-                }
-                for (int i = 0; i < answers.Length; i++)
-                {
-                    temp = answersTextFileReader.ReadLine();
-                    answers[i] = temp;
-                }
-            }
-            questionsTextFileReader.Close();
-            answersTextFileReader.Close();
-
-
-            // Question and answer Arrays are now populated with text content from external text files.
-
 
 
             Console.ReadLine();
