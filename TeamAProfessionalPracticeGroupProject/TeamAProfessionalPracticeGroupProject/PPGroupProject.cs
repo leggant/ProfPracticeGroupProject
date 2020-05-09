@@ -22,13 +22,18 @@ namespace CatchUp19
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(hashlines);
             Console.WriteLine(welcomeText);
-            Console.WriteLine(hashlines);
+            Console.WriteLine($"{hashlines}\n\n");
             Console.ForegroundColor = ConsoleColor.White;
             // User Class Method Returns Users Name
             //ask the user for their name
-            NameInput = User.getUsersName();
+            string nameInput = User.getUsersName();
+            // this needs to be converted to an integer to check that the user has entered a number and not a word.
             string userChoice = User.UsersMood();
-            
+
+            Console.WriteLine(nameInput);
+
+
+            Console.WriteLine(userChoice);
 
             //Loading text string data in to an array here.
 
@@ -83,7 +88,7 @@ namespace CatchUp19
                             Console.WriteLine(x[A]);
                             while (true)
                             {
-                                Console.WriteLine($"So {NameInput.ToUpper()} still bored? yes or no ");
+                                Console.WriteLine($"So {nameInput.ToUpper()} still bored? yes or no ");
                                 string ans = Console.ReadLine();
 
                                 if (ans == "yes")

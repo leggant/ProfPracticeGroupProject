@@ -7,7 +7,8 @@ namespace TeamAProfessionalPracticeGroupProject
     class User
     {
         public static string UsersName;
-        //public static string UsersCurrentMood;
+        public static int UsersCurrentMoodRating;
+        public static string UsersCurrentMood;
         public static string getUsersName()
         {
             Console.Write("Please Enter your name: ");
@@ -16,11 +17,22 @@ namespace TeamAProfessionalPracticeGroupProject
         }
         public static string UsersMood()
         {
-            string UsersCurrentMood;
-            Console.WriteLine($"Hi {UsersName}, How you feeling today? \nif you feeling ok enter 1 or enter 2 if you feel unwell");
+            Console.Write($"Hi {UsersName}, on a scale of 1-10, 1 being terrible and 10 being amazing, how would you rate your current mood? \n\n" +
+                $"Please enter this here: ");
             //store the user information in a string
             UsersCurrentMood = Console.ReadLine();
+            // Store rating as an integer
+            //UsersCurrentMoodRating = UsersMoodIndex(UsersCurrentMood);
             return UsersCurrentMood;
+
+            
         }
+        public static int UsersMoodIndex(string ratingNum)
+        {
+            UsersCurrentMoodRating = Convert.ToInt32(ratingNum);
+            Console.WriteLine($"Users Mood Rating: {UsersCurrentMoodRating}");
+            return UsersCurrentMoodRating;
+        }
+
     }
 }
