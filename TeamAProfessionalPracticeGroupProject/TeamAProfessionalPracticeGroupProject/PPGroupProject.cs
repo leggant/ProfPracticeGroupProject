@@ -8,8 +8,8 @@ namespace CatchUp19
         static void Main()
         {
             // Variable Declarations
-            string[] questions = new string[10];
-            string[] answers = new string[10];
+            string[] questions = new string[50];
+            string[] answers = new string[50];
 
             string NameInput, temp = "";
             string hashlines = "################################################################";
