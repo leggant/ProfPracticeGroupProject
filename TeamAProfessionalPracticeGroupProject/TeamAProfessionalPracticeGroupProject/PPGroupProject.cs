@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO; // For Importing Text Strings From Text Files
+using TeamAProfessionalPracticeGroupProject;
 
 namespace CatchUp19
 {
@@ -23,12 +24,11 @@ namespace CatchUp19
             Console.WriteLine(welcomeText);
             Console.WriteLine(hashlines);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Please Enter your name :");
-            NameInput = Console.ReadLine();
+            // User Class Method Returns Users Name
             //ask the user for their name
-            Console.WriteLine($"Hi {NameInput}, How you felling today? \nif you feeling ok enter 1 or enter 2 if you feel unwell");
-            //store the user information in a string
-            string userchoice = Console.ReadLine();
+            NameInput = User.getUsersName();
+            string userChoice = User.UsersMood();
+            
 
             //Loading text string data in to an array here.
 
@@ -55,7 +55,7 @@ namespace CatchUp19
 
             //using switch to excute diffrent commands based on the user input
 
-            switch (userchoice)
+            switch (userChoice)
             {
                 //if the user enters 1 
                 case "1":
