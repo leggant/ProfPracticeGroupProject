@@ -30,7 +30,7 @@ namespace CatchUp19
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             string userChoice = User.UsersMood();
 
-            int usernum = Convert.ToInt32(userChoice);
+            int userMoodNum = Convert.ToInt32(userChoice);
 
             //Loading text string data in to an array here.
 
@@ -59,105 +59,25 @@ namespace CatchUp19
 
             //using switch to excute diffrent commands based on the user input
 
-            switch (userChoice)
+            switch (userMoodNum)
             {
-                //if the user enters 1 
-                case "1":
-                case "2":
-                case "3":
-                case "4":
+                //Positive Mood 
+                case 1:
+                case 2:
+                case 3:
+                case 4:
                     //ask the user for why using the app 
-                    Console.WriteLine("what brings you here ?.");
-                    //let the user pick a reason from the provided opions ,also we can expand these 
-                    Console.WriteLine("bored,need moto,need something to do ");
-                    //store the user choice in a string
-                    string firstQ = Console.ReadLine();
-
-                    //switch the use choice
-                    switch (firstQ)
-                    {
-                        //if the user pick bored 
-                        case "bored":
-                        case "Bored":
-                        case "boring":
-                            //we can add random items in this array to be picked and display it to the user 
-                            Console.Write("there are plenty of things to do , how about you ");
-                            Random rand = new Random();
-                            string[] x = { "play video games", "watch movies", "go clubing ", "Eat food", "listen to music" };
-                            int A = rand.Next(x.Length);
-                            string[] y = { "study", "clean your room", "do push ups ", "sleep", "jump around " };
-                            int B = rand.Next(x.Length);
-                            Console.WriteLine(x[A]);
-                            while (true)
-                            {
-                                Console.WriteLine($"So {nameInput.ToUpper()} still bored? yes or no ");
-                                string ans = Console.ReadLine();
-
-                                if (ans == "yes")
-                                {
-                                    Console.WriteLine($"why dont you try to {y[B]}");
-                                    Console.WriteLine("we can add more things here");
-
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Great :)");
-                                    Console.WriteLine("have a good day ");
-                                    
-                                    break;
-                                }
-                            }
-
-                            break;
-
-                        case "need moto":
-                            Console.WriteLine("text");
-                            Console.WriteLine("watch videos or study etc");
-                            Console.WriteLine("some text ");
-                            break;
-                        case "somthing to do":
-                            Console.WriteLine("text");
-                            Console.WriteLine("paly games ");
-                            Console.WriteLine("have a good day");
-                            break;
-                    }
+                    Console.WriteLine(questions[0]);
                     break;
-
-                case "2":
-
-                    Console.WriteLine("How was you day toady");
-                    Console.WriteLine("(Good,Bad,very bad)??");
-                    string SecondQ = Console.ReadLine();
-
-                    switch (SecondQ)
-                    {
-                        case "Good":
-                        case "good":
-                            Console.WriteLine("Had any problems with:");
-                            Console.WriteLine("(Family,Frinds,Relationship)");
-                            string secFQ = Console.ReadLine();
-
-                            switch (secFQ)
-                            {
-                                case "family":
-                                case "Family":
-                                    Console.WriteLine("provide help for problems with family ");
-                                    break;
-
-                                case "frinds":
-                                case "Frinds":
-                                case "frind":
-                                    Console.WriteLine("provide help for problems with frinds");
-                                    break;
-                                case "Relationship":
-                                case "GF":
-                                case "gf":
-                                case "relationship":
-                                    Console.WriteLine("provide help for problems with relationships");
-                                    break;
-                            }
-                            break;
-                    }
+                //Meh Mood
+                case 5:
+                case 6:
+                case 7:
+                    break;
+                // Really Negative Mood
+                case 8:
+                case 9:
+                case 10:
                     break;
 
             }
