@@ -12,7 +12,7 @@ namespace CatchUp19
             string[] questions = new string[50];
             string[] answers = new string[50];
 
-            string NameInput, temp = "";
+            string nameInput, temp = "";
             string hashlines = "################################################################";
             string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
 
@@ -26,14 +26,11 @@ namespace CatchUp19
             Console.ForegroundColor = ConsoleColor.White;
             // User Class Method Returns Users Name
             //ask the user for their name
-            string nameInput = User.getUsersName();
+            nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             string userChoice = User.UsersMood();
 
-            Console.WriteLine(nameInput);
-
-
-            Console.WriteLine(userChoice);
+            int usernum = Convert.ToInt32(userChoice);
 
             //Loading text string data in to an array here.
 
@@ -56,7 +53,9 @@ namespace CatchUp19
             questionsTextFileReader.Close();
             answersTextFileReader.Close();
 
-            // Question and answer Arrays are now populated with text content from external text files.
+            //Console.WriteLine(questions[0]);
+
+            //Question and answer Arrays are now populated with text content from external text files.
 
             //using switch to excute diffrent commands based on the user input
 
@@ -64,6 +63,9 @@ namespace CatchUp19
             {
                 //if the user enters 1 
                 case "1":
+                case "2":
+                case "3":
+                case "4":
                     //ask the user for why using the app 
                     Console.WriteLine("what brings you here ?.");
                     //let the user pick a reason from the provided opions ,also we can expand these 
