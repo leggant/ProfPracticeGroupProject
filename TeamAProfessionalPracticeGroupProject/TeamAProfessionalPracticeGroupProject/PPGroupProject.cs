@@ -28,9 +28,8 @@ namespace CatchUp19
             //ask the user for their name
             nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
-            string userChoice = User.UsersMood();
+            int userChoice = User.UsersMood();
 
-            int userMoodNum = Convert.ToInt32(userChoice);
 
             //Loading text string data in to an array here.
 
@@ -59,7 +58,7 @@ namespace CatchUp19
 
             //using switch to excute diffrent commands based on the user input
 
-            switch (userMoodNum)
+            switch (userChoice)
             {
                 //Positive Mood 
                 case 1:
@@ -67,17 +66,20 @@ namespace CatchUp19
                 case 3:
                 case 4:
                     //ask the user for why using the app 
+                    // for each loop
                     Console.WriteLine(questions[0]);
                     break;
                 //Meh Mood
                 case 5:
                 case 6:
                 case 7:
+                    //for each loop
                     break;
                 // Really Negative Mood
                 case 8:
                 case 9:
                 case 10:
+                    // for each loop
                     break;
 
             }

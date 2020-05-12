@@ -15,7 +15,7 @@ namespace TeamAProfessionalPracticeGroupProject
             UsersName = Console.ReadLine();
             return UsersName;
         }
-        public static string UsersMood()
+        public static int UsersMood()
         {
             Console.Write($"Hi {UsersName}, on a scale of 1-10, 1 being terrible and 10 being amazing, how would you rate your current mood? \n\n" +
                 $"Please enter this here: ");
@@ -23,7 +23,26 @@ namespace TeamAProfessionalPracticeGroupProject
             UsersCurrentMood = Console.ReadLine();
             // Store rating as an integer
             //UsersCurrentMoodRating = UsersMoodIndex(UsersCurrentMood);
-            return UsersCurrentMood;
+            bool recheck = true;
+            do
+            {
+                try
+                {
+                    UsersCurrentMoodRating = Convert.ToInt32(UsersCurrentMood);
+                    recheck = false;
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nInput error, please enter a number only.");
+                    Console.Write("Please re-enter 1-10: ");
+                    Console.WriteLine("");
+                    UsersCurrentMood = Console.ReadLine();
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+            } 
+            while (recheck);
+            return UsersCurrentMoodRating;
 
             
         }
