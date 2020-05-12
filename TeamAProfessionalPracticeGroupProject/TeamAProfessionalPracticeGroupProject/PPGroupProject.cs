@@ -12,7 +12,7 @@ namespace CatchUp19
             string[] questions = new string[50];
             string[] answers = new string[50];
 
-            string NameInput, temp = "";
+            string nameInput, temp = "";
             string hashlines = "################################################################";
             string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
 
@@ -26,12 +26,11 @@ namespace CatchUp19
             Console.ForegroundColor = ConsoleColor.White;
             // User Class Method Returns Users Name
             //ask the user for their name
-            string nameInput = User.getUsersName();
+            nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             string userChoice = User.UsersMood();
 
             Console.WriteLine(nameInput);
-
 
             Console.WriteLine(userChoice);
 
