@@ -30,10 +30,7 @@ namespace CatchUp19
             nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             int userChoice = User.UsersMood();
-
-
             //Loading text string data in to an array here.
-
             StreamReader questionsTextFileReader = new StreamReader("QuestionStrings.txt");
             StreamReader answersTextFileReader = new StreamReader("AnswerStrings.txt");
 
@@ -52,13 +49,9 @@ namespace CatchUp19
             }
             questionsTextFileReader.Close();
             answersTextFileReader.Close();
-
             //Console.WriteLine(questions[0]);
-
             //Question and answer Arrays are now populated with text content from external text files.
-
             //using switch to excute diffrent commands based on the user input
-
             switch (userChoice)
             {
                 //Positive Mood 
@@ -67,61 +60,43 @@ namespace CatchUp19
                 case 3:
                 case 4:
                     //ask the user for why using the app 
-
-
-                    string userinput = "";
                     // foreach loop in questions array from line 8 to 12 
-                    foreach (var item in questions[8..12])
+                    foreach (string item in questions)
                     {
                         Console.WriteLine("Enter you answer");
-                        userinput = Console.ReadLine();
+                        temp = Console.ReadLine();
                         Console.WriteLine(item);
 
                     }
-
-
                     break;
-
                 //Meh Mood
                 case 5:
                 case 6:
                 case 7:
                     //for each loop
-                    string userinput2 = "";
-                    foreach (var item in questions[14..22])
+                    foreach (string item in questions)
                     {
                         Console.WriteLine("Enter you answer");
-                        userinput2 = Console.ReadLine();
+                        temp = Console.ReadLine();
                         Console.WriteLine(item);
                     }
-
                     break;
-
                 // Really Negative Mood
                 case 8:
                 case 9:
                 case 10:
                     // for each loop
-                    string userinput3 = "";
-                    foreach (var item in questions[24..27])
+                    foreach (string item in questions)
                     {
                         Console.WriteLine("Enter you answer");
-                        userinput3 = Console.ReadLine();
+                        temp = Console.ReadLine();
                         Console.WriteLine(item);
                     }
                     break;
-
             }
         }
 
-
-
-
     }
 
-
-
-
 }
-34
 
