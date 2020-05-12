@@ -8,6 +8,7 @@ namespace CatchUp19
     {
         static void Main()
         {
+
             // Variable Declarations
             string[] questions = new string[50];
             string[] answers = new string[50];
@@ -66,26 +67,61 @@ namespace CatchUp19
                 case 3:
                 case 4:
                     //ask the user for why using the app 
-                    // for each loop
-                    Console.WriteLine(questions[0]);
+
+
+                    string userinput = "";
+                    // foreach loop in questions array from line 8 to 12 
+                    foreach (var item in questions[8..12])
+                    {
+                        Console.WriteLine("Enter you answer");
+                        userinput = Console.ReadLine();
+                        Console.WriteLine(item);
+
+                    }
+
+
                     break;
+
                 //Meh Mood
                 case 5:
                 case 6:
                 case 7:
                     //for each loop
+                    string userinput2 = "";
+                    foreach (var item in questions[14..22])
+                    {
+                        Console.WriteLine("Enter you answer");
+                        userinput2 = Console.ReadLine();
+                        Console.WriteLine(item);
+                    }
+
                     break;
+
                 // Really Negative Mood
                 case 8:
                 case 9:
                 case 10:
                     // for each loop
+                    string userinput3 = "";
+                    foreach (var item in questions[24..27])
+                    {
+                        Console.WriteLine("Enter you answer");
+                        userinput3 = Console.ReadLine();
+                        Console.WriteLine(item);
+                    }
                     break;
 
             }
-
-
-            Console.ReadLine();
         }
+
+
+
+
     }
+
+
+
+
 }
+34
+

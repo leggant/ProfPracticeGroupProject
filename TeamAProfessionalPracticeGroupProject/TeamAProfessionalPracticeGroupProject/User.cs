@@ -17,8 +17,7 @@ namespace TeamAProfessionalPracticeGroupProject
         }
         public static int UsersMood()
         {
-            Console.Write($"Hi {UsersName}, on a scale of 1-10, 1 being terrible and 10 being amazing, how would you rate your current mood? \n\n" +
-                $"Please enter this here: ");
+            Console.Write($"Hi {UsersName}, on a scale of 1-10, 1 being terrible and 10 being amazing, how would you rate your current mood?");
             //store the user information in a string
             UsersCurrentMood = Console.ReadLine();
             // Store rating as an integer
