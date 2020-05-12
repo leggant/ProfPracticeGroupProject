@@ -61,12 +61,11 @@ namespace CatchUp19
                 case 4:
                     //ask the user for why using the app 
                     // foreach loop in questions array from line 8 to 12 
-                    foreach (string item in questions)
+                    foreach (string item in questions[8..12])
                     {
                         Console.WriteLine("Enter you answer");
                         temp = Console.ReadLine();
                         Console.WriteLine(item);
-
                     }
                     break;
                 //Meh Mood
@@ -74,7 +73,7 @@ namespace CatchUp19
                 case 6:
                 case 7:
                     //for each loop
-                    foreach (string item in questions)
+                    foreach (string item in questions[14..22])
                     {
                         Console.WriteLine("Enter you answer");
                         temp = Console.ReadLine();
@@ -86,7 +85,7 @@ namespace CatchUp19
                 case 9:
                 case 10:
                     // for each loop
-                    foreach (string item in questions)
+                    foreach (string item in questions[24..27])
                     {
                         Console.WriteLine("Enter you answer");
                         temp = Console.ReadLine();

@@ -1,20 +1,4 @@
-﻿1: Question One
-1: Question two
-1: Happy Questions
-﻿Intro
-Hi whats your name (user enters name). 
-Hi and welcome (user's name). On a scale 1 to 10 how are you feeling, Generic mood, Negative Mood 1-4, Meh Mood 5-6 and 7-10 being good.
-
-
-Questions:
-
-Generic mood:
-1: What is making you feel that way?
-2: How long have you been feeling this way?
-3: What has been on your mind lately?
-
-
-Negative Mood - 1-4
+﻿Negative Mood - 1-4
 1: Have you had thoughts of self-harm?
 2: Are you being bullied or harassed?
 3: Are you having family issues?
@@ -27,7 +11,9 @@ Negative Mood - 1-4
 Meh Mood 5-6
 1: Whatcha doing?
 2: What are you going to do with your day?  Remember to make time for you!
-
+1: What is making you feel that way?
+2: How long have you been feeling this way?
+3: What has been on your mind lately?
 
 
 Positive Mood: 7-10
