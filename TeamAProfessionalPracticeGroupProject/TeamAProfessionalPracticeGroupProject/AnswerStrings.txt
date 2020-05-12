@@ -1,5 +1,17 @@
-﻿Happy Answers
-
-Negative Answers
-
-Urgent Medical Attention Answers
+﻿Negative Answers 1-4:
+Answer:  Have you had thoughts of self-harm?
+Answer:  Are you being bullied or harassed?
+AAnswer:  re you having family issues?
+Answer:  What do ya do for fun? You should take a break and do that!
+Answer:  Are you affected by domestic violence?
+Answer:  What do you like to do to relax?
+Answer:  Can you call a friend to hang out and talk to?
+Meh Answers 5-6:
+Answer:  Whatcha doing?
+Answer:  What are you going to do with your day?  Remember to make time for you!
+Answer:  What is making you feel that way?
+Answer:  How long have you been feeling this way?
+Answer:  What has been on your mind lately?
+Happy Answers 7-10:
+Answer:  What do ya do for fun?
+Answer:  That's Great! So what will you do today for you?

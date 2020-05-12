@@ -42,8 +42,6 @@ namespace TeamAProfessionalPracticeGroupProject
             } 
             while (recheck);
             return UsersCurrentMoodRating;
-
-            
         }
         public static int UsersMoodIndex(string ratingNum)
         {
