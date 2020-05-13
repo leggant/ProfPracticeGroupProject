@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO; // For Importing Text Strings From Text Files
+using System.Linq;
 using TeamAProfessionalPracticeGroupProject;
 
 namespace CatchUp19
@@ -61,48 +62,95 @@ namespace CatchUp19
                 case 2:
                 case 3:
                 case 4:
-                    //ask the user for why using the app 
-                    // foreach loop in questions array from line 8 to 12 
 
-                    foreach (string item in questions[1..8])
+                    //iterate 2 arrays in a single foreach loop
+                    var Qustionsandanswers = questions[1..8].Zip(answers[1..8], (q, a) => new { qustion = q, answer = a });
+                    foreach (var qa in Qustionsandanswers)
                     {
-                        Console.WriteLine($"\n{item}");
-                        Console.Write("Enter you answer: ");
+                        Console.WriteLine();
+                        Console.WriteLine(qa.qustion);
+
+                        Console.Write("Please Enter..(yes or no)");
                         temp = Console.ReadLine();
-                        //generate randomised answer from the answers array for posiv
-                        randomAnswer = answerGenerator.Next(2, 9);
-                        Console.WriteLine(answers[randomAnswer]);
+
+                        if (temp == "yes" || temp == "YES")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(qa.answer);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine();
+                            Console.Write($" Need more help {nameInput}..(yes or no)");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+
+                        }
                     }
+                    // a message for the user before exiting the program
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you and stay safe");
+
                     break;
                 //Meh Mood
                 case 5:
                 case 6:
-                    //for each loop
-                    foreach (string item in questions[14..22])
+                    //iterate 2 arrays in a single foreach loop
+                    var Qustionsandanswers2 = questions[11..15].Zip(answers[17..21], (q, a) => new { qustion = q, answer = a });
+                    foreach (var qa in Qustionsandanswers2)
                     {
-                        Console.WriteLine($"\n{item}");
-                        Console.Write("Enter you answer: ");
+                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine("Enter your answer");
                         temp = Console.ReadLine();
-                        randomAnswer = answerGenerator.Next(10, 14);
-                        Console.WriteLine(answers[randomAnswer]);
+                        if (temp == "yes")
+                        {
+                            Console.WriteLine(qa.answer);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine("Feel better ? or Need more help");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+
+                        }
 
                     }
+                    // a message for the user before exiting the program
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you and stay safe");
                     break;
                 // Positive Mood
                 case 7:
                 case 8:
                 case 9:
                 case 10:
-                    // for each loop
-                    foreach (string item in questions[24..27])
+                    //iterate 2 arrays in a single foreach loop
+                    var Qustionsandanswers3 = questions[17..19].Zip(answers[27..29], (q, a) => new { qustion = q, answer = a });
+                    foreach (var qa in Qustionsandanswers3)
                     {
-                        Console.WriteLine($"\n{item}");
-                        Console.Write("Enter you answer: ");
+                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine("Enter your answer");
                         temp = Console.ReadLine();
-                        randomAnswer = answerGenerator.Next(15, 18);
-                        Console.WriteLine(answers[randomAnswer]);
+                        if (temp == "yes")
+                        {
+                            Console.WriteLine(qa.answer);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine("Feel better ? or Need more help");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+
+                        }
                     }
+                    // a message for the user before exiting the program
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you and stay safe");
                     break;
+
             }
         }
 
