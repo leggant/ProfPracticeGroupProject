@@ -9,15 +9,14 @@ namespace CatchUp19
     {
         static void Main()
         {
-
             // Variable Declarations
-            string[] questions = new string[50];
-            string[] answers = new string[50];
+            string[] questions = new string[20];
+            string[] answers = new string[20];
+            string[] affirmations = new string[20];
             Random answerGenerator = new Random();
             string nameInput, temp = "";
             string hashlines = "################################################################";
             string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
-            int randomAnswer;
             //Start Program
             // Welcome User & Ask for their name
 
@@ -35,6 +34,7 @@ namespace CatchUp19
             //Loading text string data in to an array here.
             StreamReader questionsTextFileReader = new StreamReader("QuestionStrings.txt");
             StreamReader answersTextFileReader = new StreamReader("AnswerStrings.txt");
+            StreamReader positiveAffirmationText = new StreamReader("PositiveAffirmations.txt");
 
             while (temp != null)
             {
@@ -48,11 +48,16 @@ namespace CatchUp19
                     temp = answersTextFileReader.ReadLine();
                     answers[i] = temp;
                 }
+                for (int i = 0; i < affirmations.Length; i++)
+                {
+                    temp = positiveAffirmationText.ReadLine();
+                    affirmations[i] = temp;
+                }
             }
             questionsTextFileReader.Close();
             answersTextFileReader.Close();
-
-            //Question and answer Arrays are now populated with text content from external text files.
+            positiveAffirmationText.Close();
+            //Question, answer and affirmation arrays are now populated with text content from external text files.
 
             //using switch to excute diffrent commands based on the user input
             switch (userChoice)
@@ -71,7 +76,6 @@ namespace CatchUp19
 
                         Console.Write("Please Enter..(yes or no)");
                         temp = Console.ReadLine();
-
                         if (temp == "yes" || temp == "YES")
                         {
                             Console.WriteLine();
@@ -84,22 +88,20 @@ namespace CatchUp19
                             {
                                 break;
                             }
-
                         }
                     }
                     // a message for the user before exiting the program
                     Console.WriteLine();
                     Console.WriteLine("Thank you and stay safe");
-
                     break;
                 //Meh Mood
                 case 5:
                 case 6:
                     //iterate 2 arrays in a single foreach loop
-                    var Qustionsandanswers2 = questions[11..15].Zip(answers[17..21], (q, a) => new { qustion = q, answer = a });
-                    foreach (var qa in Qustionsandanswers2)
+                    var questionsAndAnswers2 = questions[11..15].Zip(answers[17..21], (q, a) => new { question = q, answer = a });
+                    foreach (var qa in questionsAndAnswers2)
                     {
-                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine(qa.question);
                         Console.WriteLine("Enter your answer");
                         temp = Console.ReadLine();
                         if (temp == "yes")
@@ -112,9 +114,7 @@ namespace CatchUp19
                             {
                                 break;
                             }
-
                         }
-
                     }
                     // a message for the user before exiting the program
                     Console.WriteLine();
@@ -126,10 +126,10 @@ namespace CatchUp19
                 case 9:
                 case 10:
                     //iterate 2 arrays in a single foreach loop
-                    var Qustionsandanswers3 = questions[17..19].Zip(answers[27..29], (q, a) => new { qustion = q, answer = a });
-                    foreach (var qa in Qustionsandanswers3)
+                    var questionsAndAnswers3 = questions[17..19].Zip(answers[27..29], (q, a) => new { question = q, answer = a });
+                    foreach (var qa in questionsAndAnswers3)
                     {
-                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine(qa.question);
                         Console.WriteLine("Enter your answer");
                         temp = Console.ReadLine();
                         if (temp == "yes")
@@ -142,18 +142,13 @@ namespace CatchUp19
                             {
                                 break;
                             }
-
                         }
                     }
                     // a message for the user before exiting the program
                     Console.WriteLine();
                     Console.WriteLine("Thank you and stay safe");
                     break;
-
             }
         }
-
     }
-
 }
-
