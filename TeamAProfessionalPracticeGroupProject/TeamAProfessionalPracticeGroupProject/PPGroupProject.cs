@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO; // For Importing Text Strings From Text Files
+using System.Linq;
+using TeamAProfessionalPracticeGroupProject;
 
 namespace CatchUp19
 {
@@ -7,31 +9,30 @@ namespace CatchUp19
     {
         static void Main()
         {
-            // Variable Declarations
-            string[] questions = new string[10];
-            string[] answers = new string[10];
 
-            string NameInput, temp = "";
+            // Variable Declarations
+            string[] questions = new string[50];
+            string[] answers = new string[50];
+            Random answerGenerator = new Random();
+            string nameInput, temp = "";
             string hashlines = "################################################################";
             string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
-
+            int randomAnswer;
             //Start Program
             // Welcome User & Ask for their name
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(hashlines);
             Console.WriteLine(welcomeText);
-            Console.WriteLine(hashlines);
+            Console.WriteLine($"{hashlines}\n\n");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Please Enter your name :");
-            NameInput = Console.ReadLine();
+            // User Class Method Returns Users Name
+
             //ask the user for their name
-            Console.WriteLine($"Hi {NameInput}, How you felling today? \nif you feeling ok enter 1 or enter 2 if you feel unwell");
-            //store the user information in a string
-            string userchoice = Console.ReadLine();
-
+            nameInput = User.getUsersName();
+            // this needs to be converted to an integer to check that the user has entered a number and not a word.
+            int userChoice = User.UsersMood();
             //Loading text string data in to an array here.
-
             StreamReader questionsTextFileReader = new StreamReader("QuestionStrings.txt");
             StreamReader answersTextFileReader = new StreamReader("AnswerStrings.txt");
 
@@ -51,112 +52,109 @@ namespace CatchUp19
             questionsTextFileReader.Close();
             answersTextFileReader.Close();
 
-            // Question and answer Arrays are now populated with text content from external text files.
+            //Question and answer Arrays are now populated with text content from external text files.
 
             //using switch to excute diffrent commands based on the user input
-
-            switch (userchoice)
+            switch (userChoice)
             {
-                //if the user enters 1 
-                case "1":
-                    //ask the user for why using the app 
-                    Console.WriteLine("what brings you here ?.");
-                    //let the user pick a reason from the provided opions ,also we can expand these 
-                    Console.WriteLine("bored,need moto,need something to do ");
-                    //store the user choice in a string
-                    string firstQ = Console.ReadLine();
+                //Negative Mood 
+                case 1:
+                case 2:
+                case 3:
+                case 4:
 
-                    //switch the use choice
-                    switch (firstQ)
+                    //iterate 2 arrays in a single foreach loop
+                    var Qustionsandanswers = questions[1..8].Zip(answers[1..8], (q, a) => new { qustion = q, answer = a });
+                    foreach (var qa in Qustionsandanswers)
                     {
-                        //if the user pick bored 
-                        case "bored":
-                        case "Bored":
-                        case "boring":
-                            //we can add random items in this array to be picked and display it to the user 
-                            Console.Write("there are plenty of things to do , how about you ");
-                            Random rand = new Random();
-                            string[] x = { "play video games", "watch movies", "go clubing ", "Eat food", "listen to music" };
-                            int A = rand.Next(x.Length);
-                            string[] y = { "study", "clean your room", "do push ups ", "sleep", "jump around " };
-                            int B = rand.Next(x.Length);
-                            Console.WriteLine(x[A]);
-                            while (true)
+                        Console.WriteLine();
+                        Console.WriteLine(qa.qustion);
+
+                        Console.Write("Please Enter..(yes or no)");
+                        temp = Console.ReadLine();
+
+                        if (temp == "yes" || temp == "YES")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(qa.answer);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine();
+                            Console.Write($" Need more help {nameInput}..(yes or no)");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
                             {
-                                Console.WriteLine($"So {NameInput.ToUpper()} still bored? yes or no ");
-                                string ans = Console.ReadLine();
-
-                                if (ans == "yes")
-                                {
-                                    Console.WriteLine($"why dont you try to {y[B]}");
-                                    Console.WriteLine("we can add more things here");
-
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Great :)");
-                                    Console.WriteLine("have a good day ");
-                                    
-                                    break;
-                                }
+                                break;
                             }
 
-                            break;
-
-                        case "need moto":
-                            Console.WriteLine("text");
-                            Console.WriteLine("watch videos or study etc");
-                            Console.WriteLine("some text ");
-                            break;
-                        case "somthing to do":
-                            Console.WriteLine("text");
-                            Console.WriteLine("paly games ");
-                            Console.WriteLine("have a good day");
-                            break;
+                        }
                     }
+                    // a message for the user before exiting the program
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you and stay safe");
+
                     break;
-
-                case "2":
-
-                    Console.WriteLine("How was you day toady");
-                    Console.WriteLine("(Good,Bad,very bad)??");
-                    string SecondQ = Console.ReadLine();
-
-                    switch (SecondQ)
+                //Meh Mood
+                case 5:
+                case 6:
+                    //iterate 2 arrays in a single foreach loop
+                    var Qustionsandanswers2 = questions[11..15].Zip(answers[17..21], (q, a) => new { qustion = q, answer = a });
+                    foreach (var qa in Qustionsandanswers2)
                     {
-                        case "Good":
-                        case "good":
-                            Console.WriteLine("Had any problems with:");
-                            Console.WriteLine("(Family,Frinds,Relationship)");
-                            string secFQ = Console.ReadLine();
-
-                            switch (secFQ)
+                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine("Enter your answer");
+                        temp = Console.ReadLine();
+                        if (temp == "yes")
+                        {
+                            Console.WriteLine(qa.answer);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine("Feel better ? or Need more help");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
                             {
-                                case "family":
-                                case "Family":
-                                    Console.WriteLine("provide help for problems with family ");
-                                    break;
-
-                                case "frinds":
-                                case "Frinds":
-                                case "frind":
-                                    Console.WriteLine("provide help for problems with frinds");
-                                    break;
-                                case "Relationship":
-                                case "GF":
-                                case "gf":
-                                case "relationship":
-                                    Console.WriteLine("provide help for problems with relationships");
-                                    break;
+                                break;
                             }
-                            break;
+
+                        }
+
                     }
+                    // a message for the user before exiting the program
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you and stay safe");
+                    break;
+                // Positive Mood
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    //iterate 2 arrays in a single foreach loop
+                    var Qustionsandanswers3 = questions[17..19].Zip(answers[27..29], (q, a) => new { qustion = q, answer = a });
+                    foreach (var qa in Qustionsandanswers3)
+                    {
+                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine("Enter your answer");
+                        temp = Console.ReadLine();
+                        if (temp == "yes")
+                        {
+                            Console.WriteLine(qa.answer);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine("Feel better ? or Need more help");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+
+                        }
+                    }
+                    // a message for the user before exiting the program
+                    Console.WriteLine();
+                    Console.WriteLine("Thank you and stay safe");
                     break;
 
             }
-
-
-            Console.ReadLine();
         }
+
     }
+
 }
+
