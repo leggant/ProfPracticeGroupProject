@@ -62,13 +62,12 @@ namespace CatchUp19
                 case 2:
                 case 3:
                 case 4:
-
                     //iterate 2 arrays in a single foreach loop
-                    var Qustionsandanswers = questions[1..8].Zip(answers[1..8], (q, a) => new { qustion = q, answer = a });
-                    foreach (var qa in Qustionsandanswers)
+                    var QuestionsandAnswers = questions[1..8].Zip(answers[1..8], (q, a) => new { question = q, answer = a });
+                    foreach (var qa in QuestionsandAnswers)
                     {
                         Console.WriteLine();
-                        Console.WriteLine(qa.qustion);
+                        Console.WriteLine(qa.question);
 
                         Console.Write("Please Enter..(yes or no)");
                         temp = Console.ReadLine();
