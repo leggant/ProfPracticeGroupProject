@@ -10,10 +10,15 @@ namespace CatchUp19
         static void Main()
         {
             // Variable Declarations
-            string[] questions = new string[20];
-            string[] answers = new string[20];
-            string[] affirmations = new string[20];
+            string[] postiveQuestions = new string[16];
+            string[] positiveAnswers = new string[18];
+            string[] mehQuestions = new string[16];
+            string[] mehAnswers = new string[18];
+            string[] negativeQuestions = new string[16];
+            string[] negativeAnswers = new string[18];
+            string[] affirmations = new string[6];
             Random answerGenerator = new Random();
+            int affirmationslen, randAffirmations;
             string nameInput, temp = "";
             string hashlines = "################################################################";
             string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
@@ -82,7 +87,7 @@ namespace CatchUp19
                             Console.WriteLine(qa.answer);
                             //ask the user if they want to continue or to stop the program
                             Console.WriteLine();
-                            Console.Write($" Need more help {nameInput}..(yes or no)");
+                            Console.Write($"Need more help {nameInput}..(yes or no)");
                             temp = Console.ReadLine();
                             if (temp != "yes")
                             {
@@ -91,8 +96,7 @@ namespace CatchUp19
                         }
                     }
                     // a message for the user before exiting the program
-                    Console.WriteLine();
-                    Console.WriteLine("Thank you and stay safe");
+                    Console.WriteLine("\nThank you and stay safe");
                     break;
                 //Meh Mood
                 case 5:
@@ -108,7 +112,7 @@ namespace CatchUp19
                         {
                             Console.WriteLine(qa.answer);
                             //ask the user if they want to continue or to stop the program
-                            Console.WriteLine("Feel better ? or Need more help");
+                            Console.WriteLine("\nFeel better ? or Need more help");
                             temp = Console.ReadLine();
                             if (temp != "yes")
                             {
@@ -117,38 +121,21 @@ namespace CatchUp19
                         }
                     }
                     // a message for the user before exiting the program
-                    Console.WriteLine();
-                    Console.WriteLine("Thank you and stay safe");
+                    Console.WriteLine("\nThank you and stay safe");
                     break;
                 // Positive Mood
                 case 7:
                 case 8:
                 case 9:
                 case 10:
-                    //iterate 2 arrays in a single foreach loop
-                    var questionsAndAnswers3 = questions[17..19].Zip(answers[27..29], (q, a) => new { question = q, answer = a });
-                    foreach (var qa in questionsAndAnswers3)
-                    {
-                        Console.WriteLine(qa.question);
-                        Console.WriteLine("Enter your answer");
-                        temp = Console.ReadLine();
-                        if (temp == "yes")
-                        {
-                            Console.WriteLine(qa.answer);
-                            //ask the user if they want to continue or to stop the program
-                            Console.WriteLine("Feel better ? or Need more help");
-                            temp = Console.ReadLine();
-                            if (temp != "yes")
-                            {
-                                break;
-                            }
-                        }
-                    }
-                    // a message for the user before exiting the program
-                    Console.WriteLine();
-                    Console.WriteLine("Thank you and stay safe");
+                    affirmationslen = affirmations.Length;
+                    randAffirmations = answerGenerator.Next(1, affirmationslen);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"\n\t{affirmations[randAffirmations]}");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
             }
+            Console.ReadLine();
         }
     }
 }
