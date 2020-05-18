@@ -10,7 +10,7 @@ namespace CatchUp19
         static void Main()
         {
             // Variable Declarations
-            string[] postiveQuestions = new string[16];
+            string[] positiveQuestions = new string[16];
             string[] positiveAnswers = new string[18];
             string[] mehQuestions = new string[16];
             string[] mehAnswers = new string[18];
@@ -36,23 +36,56 @@ namespace CatchUp19
             nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             int userChoice = User.UsersMood();
+
             //Loading text string data in to an array here.
-            StreamReader questionsTextFileReader = new StreamReader("QuestionStrings.txt");
-            StreamReader answersTextFileReader = new StreamReader("AnswerStrings.txt");
+            //positive questions and answer text reader objects
+            StreamReader positiveQuestionsTextFileReader = new StreamReader("QuestionStrings.txt");
+            StreamReader positiveAnswersTextFileReader = new StreamReader("AnswerStrings.txt");
+            //meh questions and answer text reader objects
+            StreamReader mehQuestionsTextFileReader = new StreamReader("QuestionStrings.txt");
+            StreamReader mehAnswersTextFileReader = new StreamReader("AnswerStrings.txt");
+            //negative questions and answer text reader objects
+            StreamReader negativeQuestionsTextFileReader = new StreamReader("QuestionStrings.txt");
+            StreamReader negativeAnswersTextFileReader = new StreamReader("AnswerStrings.txt");
+            // Positive Affirmations
             StreamReader positiveAffirmationText = new StreamReader("PositiveAffirmations.txt");
 
             while (temp != null)
             {
-                for (int i = 0; i < questions.Length; i++)
+                //positive questions and answers
+                for (int i = 0; i < positiveQuestions.Length; i++)
                 {
-                    temp = questionsTextFileReader.ReadLine();
-                    questions[i] = temp;
+                    temp = positiveQuestionsTextFileReader.ReadLine();
+                    positiveQuestions[i] = temp;
                 }
-                for (int i = 0; i < answers.Length; i++)
+                for (int i = 0; i < positiveAnswers.Length; i++)
                 {
-                    temp = answersTextFileReader.ReadLine();
-                    answers[i] = temp;
+                    temp = positiveAnswersTextFileReader.ReadLine();
+                    positiveAnswers[i] = temp;
                 }
+                // meh questions and answers
+                for (int i = 0; i < mehQuestions.Length; i++)
+                {
+                    temp = mehQuestionsTextFileReader.ReadLine();
+                    mehQuestions[i] = temp;
+                }
+                for (int i = 0; i < mehAnswers.Length; i++)
+                {
+                    temp = mehAnswersTextFileReader.ReadLine();
+                    mehAnswers[i] = temp;
+                }
+                // negative questions and answers
+                for (int i = 0; i < negativeQuestions.Length; i++)
+                {
+                    temp = negativeQuestionsTextFileReader.ReadLine();
+                    negativeQuestions[i] = temp;
+                }
+                for (int i = 0; i < negativeAnswers.Length; i++)
+                {
+                    temp = negativeAnswersTextFileReader.ReadLine();
+                    negativeAnswers[i] = temp;
+                }
+                //positive affirmations
                 for (int i = 0; i < affirmations.Length; i++)
                 {
                     temp = positiveAffirmationText.ReadLine();
