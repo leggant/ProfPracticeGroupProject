@@ -110,7 +110,7 @@ namespace CatchUp19
                 case 3:
                 case 4:
                     //iterate 2 arrays in a single foreach loop
-                    var QuestionsandAnswers = questions[1..8].Zip(answers[1..8], (q, a) => new { question = q, answer = a });
+                    var QuestionsandAnswers = negativeQuestions.Zip(negativeAnswers, (q, a) => new { question = q, answer = a });
                     foreach (var qa in QuestionsandAnswers)
                     {
                         Console.WriteLine(qa.question);
@@ -138,7 +138,7 @@ namespace CatchUp19
                 case 5:
                 case 6:
                     //iterate 2 arrays in a single foreach loop
-                    var questionsAndAnswers2 = questions[11..15].Zip(answers[17..21], (q, a) => new { question = q, answer = a });
+                    var questionsAndAnswers2 = mehQuestions.Zip(mehAnswers, (q, a) => new { question = q, answer = a });
                     foreach (var qa in questionsAndAnswers2)
                     {
                         Console.WriteLine(qa.question);
