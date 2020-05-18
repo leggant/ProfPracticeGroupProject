@@ -10,9 +10,9 @@ namespace CatchUp19
         static void Main()
         {
             // Variable Declarations
-            string[] positiveQuestions = new string[16];
+            string[] positiveQuestions = new string[2];
             string[] positiveAnswers = new string[18];
-            string[] mehQuestions = new string[16];
+            string[] mehQuestions = new string[5];
             string[] mehAnswers = new string[18];
             string[] negativeQuestions = new string[16];
             string[] negativeAnswers = new string[18];

@@ -1,8 +1,12 @@
-﻿Negative Mood 1-4:
-Have you had thoughts of self-harm?
+﻿Have you had thoughts of self-harm?
 Are you being bullied or harassed?
 Are you having family issues?
 What do ya do for fun? You should take a break and do that!
 Are you affected by domestic violence?
 What do you like to do to relax?
 Can you call a friend to hang out and talk to?
+You feel stressed?
+You feel like you can’t go on?
+Your friends are screwing your life up?
+Do you have thoughts of suicide?
+Do you feel depressed?
