@@ -92,8 +92,12 @@ namespace CatchUp19
                     affirmations[i] = temp;
                 }
             }
-            questionsTextFileReader.Close();
-            answersTextFileReader.Close();
+            positiveQuestionsTextFileReader.Close();
+            positiveAnswersTextFileReader.Close();
+            negativeQuestionsTextFileReader.Close();
+            negativeAnswersTextFileReader.Close();
+            mehQuestionsTextFileReader.Close();
+            mehAnswersTextFileReader.Close();
             positiveAffirmationText.Close();
             //Question, answer and affirmation arrays are now populated with text content from external text files.
 
