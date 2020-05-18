@@ -11,11 +11,11 @@ namespace CatchUp19
         {
             // Variable Declarations
             string[] positiveQuestions = new string[2];
-            string[] positiveAnswers = new string[18];
+            string[] positiveAnswers = new string[2];
             string[] mehQuestions = new string[5];
-            string[] mehAnswers = new string[18];
-            string[] negativeQuestions = new string[16];
-            string[] negativeAnswers = new string[18];
+            string[] mehAnswers = new string[7];
+            string[] negativeQuestions = new string[12];
+            string[] negativeAnswers = new string[7];
             string[] affirmations = new string[6];
             Random answerGenerator = new Random();
             int affirmationslen, randAffirmations;
@@ -39,14 +39,14 @@ namespace CatchUp19
 
             //Loading text string data in to an array here.
             //positive questions and answer text reader objects
-            StreamReader positiveQuestionsTextFileReader = new StreamReader("QuestionStrings.txt");
-            StreamReader positiveAnswersTextFileReader = new StreamReader("AnswerStrings.txt");
+            StreamReader positiveQuestionsTextFileReader = new StreamReader("PositiveQuestionStrings.txt");
+            StreamReader positiveAnswersTextFileReader = new StreamReader("PositiveAnswerStrings.txt");
             //meh questions and answer text reader objects
-            StreamReader mehQuestionsTextFileReader = new StreamReader("QuestionStrings.txt");
-            StreamReader mehAnswersTextFileReader = new StreamReader("AnswerStrings.txt");
+            StreamReader mehQuestionsTextFileReader = new StreamReader("MehQuestionStrings.txt");
+            StreamReader mehAnswersTextFileReader = new StreamReader("MehAnswerStrings.txt");
             //negative questions and answer text reader objects
-            StreamReader negativeQuestionsTextFileReader = new StreamReader("QuestionStrings.txt");
-            StreamReader negativeAnswersTextFileReader = new StreamReader("AnswerStrings.txt");
+            StreamReader negativeQuestionsTextFileReader = new StreamReader("NegativeQuestionStrings.txt");
+            StreamReader negativeAnswersTextFileReader = new StreamReader("NegativeAnswerStrings.txt");
             // Positive Affirmations
             StreamReader positiveAffirmationText = new StreamReader("PositiveAffirmations.txt");
 
@@ -113,7 +113,6 @@ namespace CatchUp19
                     var QuestionsandAnswers = questions[1..8].Zip(answers[1..8], (q, a) => new { question = q, answer = a });
                     foreach (var qa in QuestionsandAnswers)
                     {
-                        Console.WriteLine();
                         Console.WriteLine(qa.question);
 
                         Console.Write("Please Enter..(yes or no)");
