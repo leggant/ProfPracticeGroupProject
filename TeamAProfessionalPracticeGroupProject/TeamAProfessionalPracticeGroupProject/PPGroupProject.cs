@@ -50,8 +50,7 @@ namespace CatchUp19
             // Positive Affirmations
             StreamReader positiveAffirmationText = new StreamReader("PositiveAffirmations.txt");
 
-            //while (temp != null)
-            //{
+            
                 //positive questions and answers
                 for (int i = 0; i < positiveQuestions.Length; i++)
                 {
@@ -91,7 +90,7 @@ namespace CatchUp19
                     temp = positiveAffirmationText.ReadLine();
                     affirmations[i] = temp;
                 }
-            //}
+            
             positiveQuestionsTextFileReader.Close();
             positiveAnswersTextFileReader.Close();
             negativeQuestionsTextFileReader.Close();
@@ -109,63 +108,55 @@ namespace CatchUp19
                 case 2:
                 case 3:
                 case 4:
-                    for (int i = 0; i < negativeQuestions.Length; i++)
+                    var QuestionsandAnswers = negativeQuestions.Zip(negativeAnswers, (q, a) => new { question = q, answer = a });
+                    foreach (var qa in QuestionsandAnswers)
                     {
-                        Console.WriteLine(negativeQuestions[i]);
-                    }
-                    //iterate 2 arrays in a single foreach loop
-                    //var QuestionsandAnswers = questions[1..8].Zip(answers[1..8], (q, a) => new { question = q, answer = a });
-                    //foreach (string question in negativeQuestions)
-                    //{
-                    //    Console.WriteLine(question);
+                        Console.WriteLine(qa.question);
 
-                    //    Console.Write("Please Enter..(yes or no)");
-                    //    temp = Console.ReadLine();
-                    //    if (temp == "yes" || temp == "YES")
-                    //    {
-                    //        Console.WriteLine();
-                    //        Console.WriteLine(question);
-                    //        //ask the user if they want to continue or to stop the program
-                    //        Console.WriteLine();
-                    //        Console.Write($"Need more help {nameInput}..(yes or no)");
-                    //        temp = Console.ReadLine();
-                    //        if (temp != "yes")
-                    //        {
-                    //            break;
-                    //        }
-                    //    }
-                    //}
-                    //// a message for the user before exiting the program
-                    //Console.WriteLine("\nThank you and stay safe");
+                        Console.Write("Please Enter..(yes or no)");
+                        temp = Console.ReadLine();
+                        if (temp == "yes" || temp == "YES")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(qa.answer);
+                           // ask the user if they want to continue or to stop the program
+                            Console.WriteLine();
+                            Console.Write($"Need more help {nameInput}..(yes or no)");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    //a message for the user before exiting the program
+
+                   Console.WriteLine("\nThank you and stay safe");
                     break;
                 //Meh Mood
                 case 5:
                 case 6:
                     //iterate 2 arrays in a single foreach loop
-                    //var questionsAndAnswers2 = questions[11..15].Zip(answers[17..21], (q, a) => new { question = q, answer = a });
-                    for (int i = 0; i < mehQuestions.Length; i++)
+                    var questionsAndAnswers2 = mehQuestions.Zip(mehAnswers, (q, a) => new { question = q, answer = a });
+                    foreach (string qa in mehQuestions)
                     {
-                        Console.WriteLine(mehQuestions[i]);
+                        Console.WriteLine(qa);
+                        Console.WriteLine("Enter your answer");
+                        temp = Console.ReadLine();
+                        if (temp == "yes")
+                        {
+                            Console.WriteLine(qa);
+                            //ask the user if they want to continue or to stop the program
+                            Console.WriteLine("\nFeel better ? or Need more help");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+                        }
                     }
-                    //foreach (string qa in mehQuestions)
-                    //{
-                    //    Console.WriteLine(qa);
-                    //    Console.WriteLine("Enter your answer");
-                    //    temp = Console.ReadLine();
-                    //    if (temp == "yes")
-                    //    {
-                    //        Console.WriteLine(qa);
-                    //        //ask the user if they want to continue or to stop the program
-                    //        Console.WriteLine("\nFeel better ? or Need more help");
-                    //        temp = Console.ReadLine();
-                    //        if (temp != "yes")
-                    //        {
-                    //            break;
-                    //        }
-                    //    }
-                    //}
-                    //// a message for the user before exiting the program
-                    //Console.WriteLine("\nThank you and stay safe");
+                    // a message for the user before exiting the program
+                    Console.WriteLine("\nThank you and stay safe");
                     break;
                 // Positive Mood
                 case 7:
