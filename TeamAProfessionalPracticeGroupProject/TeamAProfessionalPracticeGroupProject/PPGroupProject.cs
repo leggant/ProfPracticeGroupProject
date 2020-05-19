@@ -10,10 +10,10 @@ namespace CatchUp19
         static void Main()
         {
             // Variable Declarations
-            string[] positiveQuestions = new string[2];
-            string[] positiveAnswers = new string[2];
-            string[] mehQuestions = new string[5];
-            string[] mehAnswers = new string[7];
+            string[] positiveQuestions = new string[3];
+            string[] positiveAnswers = new string[1];
+            string[] mehQuestions = new string[7];
+            string[] mehAnswers = new string[8];
             string[] negativeQuestions = new string[12];
             string[] negativeAnswers = new string[7];
             string[] affirmations = new string[6];
@@ -28,7 +28,7 @@ namespace CatchUp19
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(hashlines);
             Console.WriteLine(welcomeText);
-            Console.WriteLine($"{hashlines}\n\n");
+            Console.WriteLine($"{hashlines}\n");
             Console.ForegroundColor = ConsoleColor.White;
             // User Class Method Returns Users Name
 
@@ -36,7 +36,6 @@ namespace CatchUp19
             nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             int userChoice = User.UsersMood();
-
             //Loading text string data in to an array here.
             //positive questions and answer text reader objects
             StreamReader positiveQuestionsTextFileReader = new StreamReader("PositiveQuestionStrings.txt");
@@ -50,7 +49,6 @@ namespace CatchUp19
             // Positive Affirmations
             StreamReader positiveAffirmationText = new StreamReader("PositiveAffirmations.txt");
             affirmationslen = affirmations.Length;
-
             //positive questions and answers
             for (int i = 0; i < positiveQuestions.Length; i++)
             {
@@ -110,25 +108,27 @@ namespace CatchUp19
                     var QuestionsandAnswers = negativeQuestions.Zip(negativeAnswers, (q, a) => new { question = q, answer = a });
                     foreach (var qa in QuestionsandAnswers)
                     {
-                        Console.WriteLine(qa.question);
-                        Console.Write("Please Enter your answer");
+                        Console.WriteLine($"\n{qa.question}");
+                        Console.Write($"Please Enter your answer: ");
                         temp = Console.ReadLine();
                         if (temp != null)
                         {
-                            Console.WriteLine();
-                            Console.WriteLine(qa.answer);
+                            Console.WriteLine($"\n{qa.answer}");
                         }
                         // ask the user if they want to continue or to stop the program
-                        Console.WriteLine();
-                        Console.Write($"Need more help {nameInput}..(yes or no)");
+                        Console.Write($"\nNeed more help {nameInput}? (yes or no): ");
                         temp = Console.ReadLine();
                         if (temp != "yes")
                         {
+                            affirmationslen = affirmations.Length;
+                            randAffirmations = answerGenerator.Next(1, affirmationslen);
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.Write($"\n{affirmations[randAffirmations]}");
+                            Console.ForegroundColor = ConsoleColor.White;
                             break;
                         }
-
                     }
-                    Console.WriteLine($"Thank you {nameInput} and stay safe");
+                    Console.WriteLine($"\n\nThank you {nameInput} and stay safe.");
                     break;
                 case 5:
                 case 6:
@@ -136,43 +136,39 @@ namespace CatchUp19
                     var QuestionsandAnswers2 = mehQuestions.Zip(mehAnswers, (q, a) => new { question = q, answer = a });
                     foreach (var qa in QuestionsandAnswers2)
                     {
-                        Console.WriteLine(qa.question);
-
-                        Console.Write("Please Enter you answer");
+                        Console.WriteLine($"\n{qa.question}");
+                        Console.Write("Please Enter your answer: ");
                         temp = Console.ReadLine();
                         if (temp != null)
                         {
-                            Console.WriteLine();
-                            Console.WriteLine(qa.answer);
+                            Console.WriteLine($"\n{qa.answer}");
                         }
-                        Console.WriteLine();
-                        Console.Write($"Need more help {nameInput}..(yes or no)");
+                        Console.Write($"\nNeed more help {nameInput}? (yes or no): ");
                         temp = Console.ReadLine();
                         if (temp != "yes")
                         {
+                            affirmationslen = affirmations.Length;
+                            randAffirmations = answerGenerator.Next(1, affirmationslen);
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.Write($"\n{affirmations[randAffirmations]}");
+                            Console.ForegroundColor = ConsoleColor.White;
                             break;
                         }
                     }
-                    Console.WriteLine($"Thank you {nameInput} and stay safe");
+                    Console.WriteLine($"\n\nThank you {nameInput} and stay safe");
                     break;
                 // Positive Mood
                 case 7:
                 case 8:
                 case 9:
                 case 10:
-                    //questionSelector = answerGenerator.Next(positiveQuestions.Length);
-                    //Console.Write($"{positiveQuestions[questionSelector]} : ");
-                    ////read in answer? or follow a set script?
                     affirmationslen = affirmations.Length;
                     randAffirmations = answerGenerator.Next(1, affirmationslen);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write($"\n{affirmations[randAffirmations]}");
                     Console.ForegroundColor = ConsoleColor.White;
 
-
-
                     //we can add an array of random text here to say somthing to the user after the random quote is executed
-
                     break;
             }
             Console.ReadLine();

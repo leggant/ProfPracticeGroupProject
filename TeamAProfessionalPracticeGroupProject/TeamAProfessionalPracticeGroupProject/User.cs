@@ -19,7 +19,7 @@ namespace TeamAProfessionalPracticeGroupProject
         {
             Random rand = new Random();
             //random welcom msg
-            string[] WelcomeMsg = { "HI", "Welcome", "Good day", "Hay" };
+            string[] WelcomeMsg = { "Hi", "Welcome", "Good day", "Hey" };
             int msg = rand.Next(WelcomeMsg.Length);
             Console.WriteLine();
 
@@ -28,7 +28,7 @@ namespace TeamAProfessionalPracticeGroupProject
             int feel = rand.Next(feelings.Length);
             Console.WriteLine($"{WelcomeMsg[msg]} {UsersName} hope you feeling {feelings[feel]} today :)");
             Console.WriteLine();
-            Console.Write("On a scale of 1 - 10, 1 being terrible and 10 being amazing, how would you rate your current mood ? ");
+            Console.Write("On a scale of 1 - 10, 1 being terrible and 10 being amazing,\n how would you rate your current mood ? ");
             //store the user information in a string
             UsersCurrentMood = Console.ReadLine();
             // Store rating as an integer
@@ -46,7 +46,6 @@ namespace TeamAProfessionalPracticeGroupProject
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\nInput error, please enter a number only.");
                     Console.Write("Please re-enter 1-10: ");
-                    Console.WriteLine("");
                     UsersCurrentMood = Console.ReadLine();
                     Console.ForegroundColor = ConsoleColor.White;
                 }
