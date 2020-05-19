@@ -21,8 +21,8 @@ namespace CatchUp19
             int affirmationslen, randAffirmations;
             string nameInput, temp = "";
             string hashlines = "################################################################";
-            string welcomeText = "###########Welcome, Catch-Up-19 is Here To Help You!###########\nCovid-19 Lockdown has been tough, so we are here to check in.";
-            //Start Program
+            string welcomeText = "########## Welcome, Catch-Up-19 is Here To Help You! ###########\n  Covid-19 Lockdown has been tough, so we are here to check in.";
+            // Start Program
             // Welcome User & Ask for their name
 
             Console.ForegroundColor = ConsoleColor.Green;
@@ -32,18 +32,18 @@ namespace CatchUp19
             Console.ForegroundColor = ConsoleColor.White;
             // User Class Method Returns Users Name
 
-            //ask the user for their name
+            // ask the user for their name
             nameInput = User.getUsersName();
             // this needs to be converted to an integer to check that the user has entered a number and not a word.
             int userChoice = User.UsersMood();
-            //Loading text string data in to an array here.
-            //positive questions and answer text reader objects
+            // Loading text string data in to an array here.
+            // Positive questions and answer text reader objects
             StreamReader positiveQuestionsTextFileReader = new StreamReader("PositiveQuestionStrings.txt");
             StreamReader positiveAnswersTextFileReader = new StreamReader("PositiveAnswerStrings.txt");
-            //meh questions and answer text reader objects
+            // meh questions and answer text reader objects
             StreamReader mehQuestionsTextFileReader = new StreamReader("MehQuestionStrings.txt");
             StreamReader mehAnswersTextFileReader = new StreamReader("MehAnswerStrings.txt");
-            //negative questions and answer text reader objects
+            // Negative questions and answer text reader objects
             StreamReader negativeQuestionsTextFileReader = new StreamReader("NegativeQuestionStrings.txt");
             StreamReader negativeAnswersTextFileReader = new StreamReader("NegativeAnswerStrings.txt");
             // Positive Affirmations
@@ -95,9 +95,9 @@ namespace CatchUp19
             mehQuestionsTextFileReader.Close();
             mehAnswersTextFileReader.Close();
             positiveAffirmationText.Close();
-            //Question, answer and affirmation arrays are now populated with text content from external text files.
+            // Question, answer and affirmation arrays are now populated with text content from external text files.
 
-            //using switch to excute diffrent commands based on the user input.
+            // using switch to excute diffrent commands based on the user input.
             switch (userChoice)
             {
                 //Negative Mood
@@ -167,7 +167,6 @@ namespace CatchUp19
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write($"\n{affirmations[randAffirmations]}");
                     Console.ForegroundColor = ConsoleColor.White;
-
                     //we can add an array of random text here to say somthing to the user after the random quote is executed
                     break;
             }
