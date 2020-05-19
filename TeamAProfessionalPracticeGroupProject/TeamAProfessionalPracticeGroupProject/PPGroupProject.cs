@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO; // For Importing Text Strings From Text Files
+using System.Linq;
 using TeamAProfessionalPracticeGroupProject;
 
 namespace CatchUp19
@@ -51,45 +52,45 @@ namespace CatchUp19
 
             //while (temp != null)
             //{
-                //positive questions and answers
-                for (int i = 0; i < positiveQuestions.Length; i++)
-                {
-                    temp = positiveQuestionsTextFileReader.ReadLine();
-                    positiveQuestions[i] = temp;
-                }
-                for (int i = 0; i < positiveAnswers.Length; i++)
-                {
-                    temp = positiveAnswersTextFileReader.ReadLine();
-                    positiveAnswers[i] = temp;
-                }
-                // meh questions and answers
-                for (int i = 0; i < mehQuestions.Length; i++)
-                {
-                    temp = mehQuestionsTextFileReader.ReadLine();
-                    mehQuestions[i] = temp;
-                }
-                for (int i = 0; i < mehAnswers.Length; i++)
-                {
-                    temp = mehAnswersTextFileReader.ReadLine();
-                    mehAnswers[i] = temp;
-                }
-                // negative questions and answers
-                for (int i = 0; i < negativeQuestions.Length; i++)
-                {
-                    temp = negativeQuestionsTextFileReader.ReadLine();
-                    negativeQuestions[i] = temp;
-                }
-                for (int i = 0; i < negativeAnswers.Length; i++)
-                {
-                    temp = negativeAnswersTextFileReader.ReadLine();
-                    negativeAnswers[i] = temp;
-                }
-                //positive affirmations
-                for (int i = 0; i < affirmations.Length; i++)
-                {
-                    temp = positiveAffirmationText.ReadLine();
-                    affirmations[i] = temp;
-                }
+            //positive questions and answers
+            for (int i = 0; i < positiveQuestions.Length; i++)
+            {
+                temp = positiveQuestionsTextFileReader.ReadLine();
+                positiveQuestions[i] = temp;
+            }
+            for (int i = 0; i < positiveAnswers.Length; i++)
+            {
+                temp = positiveAnswersTextFileReader.ReadLine();
+                positiveAnswers[i] = temp;
+            }
+            // meh questions and answers
+            for (int i = 0; i < mehQuestions.Length; i++)
+            {
+                temp = mehQuestionsTextFileReader.ReadLine();
+                mehQuestions[i] = temp;
+            }
+            for (int i = 0; i < mehAnswers.Length; i++)
+            {
+                temp = mehAnswersTextFileReader.ReadLine();
+                mehAnswers[i] = temp;
+            }
+            // negative questions and answers
+            for (int i = 0; i < negativeQuestions.Length; i++)
+            {
+                temp = negativeQuestionsTextFileReader.ReadLine();
+                negativeQuestions[i] = temp;
+            }
+            for (int i = 0; i < negativeAnswers.Length; i++)
+            {
+                temp = negativeAnswersTextFileReader.ReadLine();
+                negativeAnswers[i] = temp;
+            }
+            //positive affirmations
+            for (int i = 0; i < affirmations.Length; i++)
+            {
+                temp = positiveAffirmationText.ReadLine();
+                affirmations[i] = temp;
+            }
             //}
             positiveQuestionsTextFileReader.Close();
             positiveAnswersTextFileReader.Close();
@@ -108,28 +109,71 @@ namespace CatchUp19
                 case 2:
                 case 3:
                 case 4:
-                     questionSelector = answerGenerator.Next(negativeQuestions.Length);
-                        Console.Write($"{negativeQuestions[questionSelector]}: ");
+                    var QuestionsandAnswers = negativeQuestions.Zip(negativeAnswers, (q, a) => new { question = q, answer = a });
+                    foreach (var qa in QuestionsandAnswers)
+                    {
+                        Console.WriteLine(qa.question);
+
+                        Console.Write("Please Enter..(yes or no)");
+                        temp = Console.ReadLine();
+                        if (temp == "yes" || temp == "YES")
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(qa.answer);
+                            // ask the user if they want to continue or to stop the program
+                            Console.WriteLine();
+                            Console.Write($"Need more help {nameInput}..(yes or no)");
+                            temp = Console.ReadLine();
+                            if (temp != "yes")
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    Console.WriteLine($"Thank you {nameInput} and stay safe");
                     break;
-                //Meh Mood
                 case 5:
                 case 6:
-                    questionSelector = answerGenerator.Next(mehQuestions.Length);
-                    Console.Write($"{mehQuestions[questionSelector]} : ");
+                    //Meh Mood
+                    var QuestionsandAnswers2 = mehQuestions.Zip(mehAnswers, (q, a) => new { question = q, answer = a });
+                    foreach (var qa in QuestionsandAnswers2)
+                    {
+                        Console.WriteLine(qa.question);
+
+                        Console.Write("Please Enter you answer");
+                        temp = Console.ReadLine();
+                        if (temp != null)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine(qa.answer);
+                        }
+                        Console.WriteLine();
+                        Console.Write($"Need more help {nameInput}..(yes or no)");
+                        temp = Console.ReadLine();
+                        if (temp != "yes")
+                        {
+                            break;
+                        }
+                    }
+                    Console.WriteLine($"Thank you {nameInput} and stay safe");
                     break;
                 // Positive Mood
                 case 7:
                 case 8:
                 case 9:
                 case 10:
-                    questionSelector = answerGenerator.Next(positiveQuestions.Length);
-                    Console.Write($"{positiveQuestions[questionSelector]} : ");
-                    //read in answer? or follow a set script?
+                    //questionSelector = answerGenerator.Next(positiveQuestions.Length);
+                    //Console.Write($"{positiveQuestions[questionSelector]} : ");
+                    ////read in answer? or follow a set script?
                     affirmationslen = affirmations.Length;
                     randAffirmations = answerGenerator.Next(1, affirmationslen);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write($"\n{affirmations[randAffirmations]}");
                     Console.ForegroundColor = ConsoleColor.White;
+
+
+                    //we can add an array of random text here to say somthing to the user after the random quote is executed
+
                     break;
             }
             Console.ReadLine();
