@@ -16,7 +16,7 @@ namespace CatchUp19
             string[] mehAnswers = new string[8];
             string[] negativeQuestions = new string[12];
             string[] negativeAnswers = new string[7];
-            string[] affirmations = new string[6];
+            string[] affirmations = new string[11];
             Random answerGenerator = new Random();
             int affirmationslen, randAffirmations;
             string nameInput, temp = "";
