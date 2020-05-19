@@ -112,19 +112,24 @@ namespace CatchUp19
                     {
                         Console.WriteLine(qa.question);
 
-                        Console.Write("Please Enter..(yes or no)");
+                        Console.Write("Please Enter your answer");
                         temp = Console.ReadLine();
-                        if (temp == "yes" || temp == "YES")
+                        if (temp !=null)
                         {
                             Console.WriteLine($"\n{qa.answer}");
                             // ask the user if they want to continue or to stop the program
                             Console.Write($"\nNeed more help {nameInput}..(yes or no)");
+                            Console.WriteLine();
+                            Console.WriteLine(qa.answer);
+                        }
+                        // ask the user if they want to continue or to stop the program
+                        Console.WriteLine();
+                            Console.Write($"Need more help {nameInput}..(yes or no)");
                             temp = Console.ReadLine();
                             if (temp != "yes")
                             {
                                 break;
                             }
-                        }
                     }
                     Console.WriteLine($"\nThank you {nameInput} and stay safe\n");
                     randAffirmations = answerGenerator.Next(1, affirmationslen);
@@ -169,6 +174,9 @@ namespace CatchUp19
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write($"\n{affirmations[randAffirmations]}");
                     Console.ForegroundColor = ConsoleColor.White;
+
+
+
                     //we can add an array of random text here to say somthing to the user after the random quote is executed
                     break;
             }
