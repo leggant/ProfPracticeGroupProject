@@ -110,17 +110,16 @@ namespace CatchUp19
                     var QuestionsandAnswers = negativeQuestions.Zip(negativeAnswers, (q, a) => new { question = q, answer = a });
                     foreach (var qa in QuestionsandAnswers)
                     {
-                        Console.WriteLine(qa.question);
+                        Console.WriteLine($"\n{qa.question}");
 
-                        Console.Write("Please Enter your answer");
+                        Console.Write("Please Enter your answer: ");
                         temp = Console.ReadLine();
                         if (temp !=null)
                         {
                             Console.WriteLine($"\n{qa.answer}");
                             // ask the user if they want to continue or to stop the program
                             Console.Write($"\nNeed more help {nameInput}..(yes or no)");
-                            Console.WriteLine();
-                            Console.WriteLine(qa.answer);
+                            Console.WriteLine($"\n{qa.answer}");
                         }
                         // ask the user if they want to continue or to stop the program
                         Console.WriteLine();
