@@ -101,7 +101,7 @@ namespace CatchUp19
             positiveAffirmationText.Close();
             //Question, answer and affirmation arrays are now populated with text content from external text files.
 
-            //using switch to excute diffrent commands based on the user input
+            //using switch to excute diffrent commands based on the user input.
             switch (userChoice)
             {
                 //Negative Mood
@@ -113,7 +113,6 @@ namespace CatchUp19
                     foreach (var qa in QuestionsandAnswers)
                     {
                         Console.WriteLine(qa.question);
-
                         Console.Write("Please Enter your answer");
                         temp = Console.ReadLine();
                         if (temp !=null)
